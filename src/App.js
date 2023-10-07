@@ -7,17 +7,17 @@ import Loader from "./components/UI/loader/Loader";
 
 function App() {
   const [posts, setPost] = useState([]);
-  const [isPostLoading, setItPostsLoading] = useState(false)
+  const [isPostLoading, setIsPostsLoading] = useState(false)
 
   useEffect(() => {
     fetchPost();
   }, []);
 
   async function fetchPost() {
-    setItPostsLoading(true)
+    setIsPostsLoading(true)
     const posts = await getAllPosts();
     setPost(posts);
-    setItPostsLoading(false)
+    setIsPostsLoading(false)
   }
   return (
     <div className="App">
