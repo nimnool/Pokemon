@@ -3,6 +3,7 @@ import './styles/App.scss'
 import {useEffect, useState} from "react";
 import PostService from "./API/PostService";
 import PostList from "./components/PostList";
+import Loader from "./components/UI/loader/Loader";
 
 function App() {
   const [posts, setPost] = useState([]);
@@ -15,14 +16,13 @@ function App() {
   async function fetchPost() {
     setItPostsLoading(true)
     const posts = await PostService.getAll();
-    console.log(posts)
     setPost(posts)
     setItPostsLoading(false)
   }
   return (
     <div className="App">
       {isPostLoading
-          ? <h1>LOAD</h1>
+          ? <Loader/>
           : <PostList posts={posts} listTitle={'Post Title'}/>
       }
     </div>
