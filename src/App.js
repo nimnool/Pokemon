@@ -1,7 +1,7 @@
 import './App.css';
 import './styles/App.scss'
 import {useEffect, useState} from "react";
-import PostService from "./API/PostService";
+import {getAllPosts} from "./API/PostService";
 import PostList from "./components/PostList";
 import Loader from "./components/UI/loader/Loader";
 
@@ -15,8 +15,8 @@ function App() {
 
   async function fetchPost() {
     setItPostsLoading(true)
-    const posts = await PostService.getAll();
-    setPost(posts)
+    const posts = await getAllPosts();
+    setPost(posts);
     setItPostsLoading(false)
   }
   return (
